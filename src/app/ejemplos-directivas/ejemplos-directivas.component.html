@@ -1,1 +1,49 @@
-<p>ejemplos-directivas works!</p>
+<button type="button" (click)="VerAlumnos()" class="btn btn-primary">Visualizar alumnos</button>
+<button type="button" (click)="VerCursos()" class="btn btn-secondary">Visualizar Cursos</button>
+<hr>
+
+@if (mostrarAlumnos) {
+<table class="table">           
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (alumno of alumnosLista; track $index) {
+            <tr>
+                <th scope="row">{{alumno.id}}</th>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellido}}</td>
+                <td>mdo</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+
+@if (mostrarCursos) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">name/th>
+                <th scope="col">price</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (curso of cursosLista; track $index) {
+                <tr>
+                    <th scope="row">{{curso.id}}</th>
+                    <td>{{curso.nombre}}</td>
+                    <td>{{curso.precio}}</td>
+                    <td>mdo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
